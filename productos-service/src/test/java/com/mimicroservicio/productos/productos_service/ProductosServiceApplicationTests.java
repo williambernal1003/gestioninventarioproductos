@@ -3,6 +3,7 @@ package com.mimicroservicio.productos.productos_service;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
 @SpringBootTest
 class ProductosServiceApplicationTests {
 
@@ -10,4 +11,8 @@ class ProductosServiceApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+    void mainMethodRunsSuccessfully() {
+		ProductosServiceApplication.main(new String[]{});
+    }
 }

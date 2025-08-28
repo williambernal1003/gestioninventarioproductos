@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  productos-service:
+    build:
+      context: ./productos-service
+      dockerfile: Dockerfile
+    container_name: productos-service
+    ports:
+      - "8081:8081"
+    networks:
+      - microservices-net
+
+  inventario-service:
+    build:
+      context: ./inventario-service
+      dockerfile: Dockerfile
+    container_name: inventario-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - productos-service
+    networks:
+      - microservices-net
+
+networks:
+  microservices-net:
+    driver: bridge
